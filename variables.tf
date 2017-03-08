@@ -1,14 +1,14 @@
 
 variable "key_name" {
   description = "Desired name of AWS key pair"
-  default = "ms-manish"
+  default = "tw-key"
 }
 
 
 
 variable "key_file_path" {
   description = "Private Key Location"
-  default = "/vagrant/tw_assignment/ms-manish.pem"
+  default = "/vagrant/tw_assignment/tw_key.pem"
 }
 
 
