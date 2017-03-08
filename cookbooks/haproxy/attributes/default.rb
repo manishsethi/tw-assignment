@@ -25,15 +25,15 @@ default['haproxy']['mode'] = "http"
 default['haproxy']['incoming_address'] = "0.0.0.0"
 default['haproxy']['incoming_port'] = 80
 default['haproxy']['members'] = [{
-  "hostname" => "webserver1.thoughtworks.in",
+  "hostname" => "webserver.thoughtworks.in",
   "ipaddress" => "44.23.45.66",
   "port" => 80,
   "ssl_port" => 80
 }, {
-  "hostname" => "webserver2.thoughtworks.in",
-  "ipaddress" => "44.23.45.62",
-  "port" => 80,
-  "ssl_port" => 80
+  "hostname" => "localhost",
+  "ipaddress" => "127.0.0.1",
+  "port" => 4001,
+  "ssl_port" => 4001
 }]
 default['haproxy']['member_port'] = 8080
 default['haproxy']['member_weight'] = 1
@@ -46,8 +46,8 @@ default['haproxy']['ssl_member_port'] = 8443
 default['haproxy']['httpchk'] = nil
 default['haproxy']['ssl_httpchk'] = nil
 default['haproxy']['enable_admin'] = true
-default['haproxy']['admin']['address_bind'] = "0.0.0.0"
-default['haproxy']['admin']['port'] = 22001
+default['haproxy']['admin']['address_bind'] = "127.0.0.1"
+default['haproxy']['admin']['port'] = 22002
 default['haproxy']['admin']['options'] = { 'stats' => 'uri /' }
 default['haproxy']['enable_stats_socket'] = false
 default['haproxy']['stats_socket_path'] = "/var/run/haproxy.sock"

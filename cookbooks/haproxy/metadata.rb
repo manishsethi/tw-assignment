@@ -1,10 +1,10 @@
 name              "haproxy"
-maintainer        "Chef Software, Inc."
-maintainer_email  "cookbooks@chef.io"
+maintainer        "manishsethi"
+maintainer_email  "manish@sethis.in"
 license           "Apache 2.0"
 description       "Installs and configures haproxy"
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version           "1.6.7"
+version           "1.6.8"
 
 recipe "haproxy", "Installs and configures haproxy"
 recipe "haproxy::app_lb", "Installs and configures haproxy by searching for nodes of a particular role"
@@ -89,13 +89,13 @@ attribute "haproxy/admin/address_bind",
   :display_name => "HAProxy admin address bind",
   :description => "Sets the address to bind the administrative interface on, 127.0.0.1 by default.",
   :required => "optional",
-  :default => "127.0.0.1"
+  :default => "0.0.0.0"
 
 attribute "haproxy/admin/port",
   :display_name => "HAProxy admin port",
   :description => "Sets the port for the administrative interface, 22002 by default.",
   :required => "optional",
-  :default => "22002"
+  :default => "22001"
 
 attribute "haproxy/pid_file",
   :display_name => "HAProxy PID file",
