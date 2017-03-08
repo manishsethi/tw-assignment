@@ -1,5 +1,4 @@
 
-
 # Specify the provider and access details
 provider "aws" {
   region = "${var.aws_region}"
@@ -123,8 +122,8 @@ resource "aws_security_group" "haproxy" {
 
   # HTTP access from the VPC
   ingress {
-    from_port   = 3306
-    to_port     = 3306
+    from_port   = 80
+    to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
@@ -185,7 +184,7 @@ resource "aws_instance" "mysql" {
 
   connection {
    type = "ssh"
-   private_key = "${file("/vagrant/tw_assignment/tw_key.pem")}"
+   private_key = "${file("/vagrant/tw_assignment/tw-key.pem")}"
    user = "centos"
  }
   key_name="ms-manish.pem"
@@ -218,7 +217,7 @@ resource "aws_instance" "web1" {
   # Tags for machine
   connection {
    type = "ssh"
-   private_key = "${file("/vagrant/tw_assignment/tw_key.pem")}"
+   private_key = "${file("/vagrant/tw_assignment/tw-key.pem")}"
    user = "centos"
    timeout = "10m"
   }
@@ -250,7 +249,7 @@ resource "aws_instance" "haproxy" {
   # Tags for machine
   connection {
    type = "ssh"
-   private_key = "${file("/vagrant/tw_assignment/tw_key.pem")}"
+   private_key = "${file("/vagrant/tw_assignment/tw-key.pem")}"
    user = "centos"
   }
   tags {Name = "tw-haproxy"}
@@ -279,7 +278,7 @@ resource "aws_instance" "haproxy" {
 resource "aws_instance" "chef_server" {
   connection {
     type = "ssh"
-    private_key = "${file("/vagrant/tw_assignment/tw_key.pem")}"
+    private_key = "${file("/vagrant/tw_assignment/tw-key.pem")}"
     user = "centos"
   }
   # Tags for machine
